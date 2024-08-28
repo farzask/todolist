@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:uptodo/models/textmodel.dart';
 import 'package:uptodo/pages/home.dart';
 import 'package:uptodo/models/buttonmodel.dart';
-// import 'package:firebase_core/firebase_core.dart';
-// import 'firebase_options.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
