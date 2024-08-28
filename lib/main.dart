@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:uptodo/pages/intropage.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 // import 'package:uptodo/pages/home.dart';
 // import 'package:uptodo/pages/sign_in_page.dart';
 
-void main() {
+Future<void> main() async {
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MyApp());
 }
 

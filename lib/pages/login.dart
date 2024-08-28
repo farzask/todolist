@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:uptodo/models/textmodel.dart';
 import 'package:uptodo/pages/home.dart';
+import 'package:uptodo/models/buttonmodel.dart';
+// import 'package:firebase_core/firebase_core.dart';
+// import 'firebase_options.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -9,19 +12,7 @@ class LoginPage extends StatefulWidget {
   State<LoginPage> createState() => _LoginPageState();
 }
 
-// final _formkey = GlobalKey<FormState>();
-
 class _LoginPageState extends State<LoginPage> {
-//   final _usernameController = TextEditingController();
-//   final _passwordController = TextEditingController();
-
-//   @override
-//   void dispose() {
-//     _usernameController.dispose();
-//     _passwordController.dispose();
-//     super.dispose();
-//   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,12 +21,9 @@ class _LoginPageState extends State<LoginPage> {
         backgroundColor: const Color(0xff121212),
       ),
       body: SafeArea(
-          child: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(20.0),
-          child: SizedBox(
-            height: MediaQuery.of(context).size.height,
-            width: MediaQuery.of(context).size.width,
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(20.0),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -65,36 +53,43 @@ class _LoginPageState extends State<LoginPage> {
                 const SizedBox(
                   height: 50,
                 ),
-                Center(
-                  child: filledButton('Login', const HomePage()),
-                )
+                const Center(
+                    child: FilledButtonModel(text: 'Login', page: HomePage())),
+                const SizedBox(height: 40),
+                orDivider(),
               ],
             ),
           ),
         ),
-      )),
+      ),
     );
   }
 
-  Widget filledButton(String text, Widget page) {
-    return MaterialButton(
-      onPressed: () {
-        // if (_formkey.currentState!.validate()) {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => page,
+  Row orDivider() {
+    return const Row(
+      children: <Widget>[
+        Expanded(
+          child: Divider(
+            color: Colors.grey, // Adjust the color of the divider
+            thickness: 2, // Adjust the thickness of the divider
           ),
-        );
-        // }
-      },
-      height: 48,
-      minWidth: 269,
-      color: const Color(0xff8875FF),
-      child: Text(
-        text,
-        style: TextModel.light,
-      ),
+        ),
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: 8.0),
+          child: Text(
+            "OR",
+            style: TextStyle(
+              color: Colors.grey, // Adjust the color of the text
+            ),
+          ),
+        ),
+        Expanded(
+          child: Divider(
+            color: Colors.grey, // Adjust the color of the divider
+            thickness: 1, // Adjust the thickness of the divider
+          ),
+        ),
+      ],
     );
   }
 

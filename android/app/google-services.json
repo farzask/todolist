@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "683150737465",
+    "firebase_url": "https://todolist-20bcd-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "todolist-20bcd",
+    "storage_bucket": "todolist-20bcd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:683150737465:android:e5ff31616b6d4fc39b8de8",
+        "android_client_info": {
+          "package_name": "com.example.uptodo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA63ZIRcZTOoD0n8UjCAaOQnxj9iRSdnM0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
