@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:uptodo/pages/home.dart';
+import 'package:uptodo/pages/intropage.dart';
+// import 'package:uptodo/pages/home.dart';
+// import 'package:uptodo/pages/sign_in_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +18,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         fontFamily: 'SF Pro Display',
       ),
-      home: const HomePage(),
+      home: const Intropage(),
     );
   }
 }

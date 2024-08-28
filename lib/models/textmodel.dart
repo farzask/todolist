@@ -19,6 +19,18 @@ class TextModel {
     fontWeight: FontWeight.w200,
   );
 
+  static TextStyle light = const TextStyle(
+    fontSize: 16,
+    color: Colors.white,
+    fontWeight: FontWeight.w200,
+  );
+
+  static TextStyle hintText = const TextStyle(
+    fontSize: 16,
+    color: Color(0xff979797),
+    fontWeight: FontWeight.w200,
+  );
+
   static TextStyle selectedLabel = const TextStyle(
     fontSize: 12,
     color: Colors.white,
