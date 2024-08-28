@@ -31,7 +31,9 @@ migrate_working_dir/
 .pub/
 /build/
 /firebase_options.dart
-/firebase.json
+
+# firebase config file
+firebase.json
 
 
 # Symbolication related

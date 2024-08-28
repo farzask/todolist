@@ -55,6 +55,7 @@ class _LoginPageState extends State<LoginPage> {
                     child: FilledButtonModel(text: 'Login', page: HomePage())),
                 const SizedBox(height: 40),
                 orDivider(),
+                const SizedBox(height: 40),
               ],
             ),
           ),
@@ -96,6 +97,7 @@ class _LoginPageState extends State<LoginPage> {
       height: 48,
       width: 345,
       child: TextFormField(
+        style: TextModel.body,
         decoration: InputDecoration(
           fillColor: const Color(0xff1D1D1D),
           filled: true,
