@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:uptodo/models/textmodel.dart';
 import 'package:uptodo/pages/home.dart';
 import 'package:uptodo/models/buttonmodel.dart';
+import 'package:uptodo/pages/sign_in_page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -56,6 +57,53 @@ class _LoginPageState extends State<LoginPage> {
                 const SizedBox(height: 40),
                 orDivider(),
                 const SizedBox(height: 40),
+                const Center(
+                  child: UnFilledButtonSVGModel(
+                    iconPath: 'assets/icons/google.svg',
+                    text: 'Login with Google',
+                    // page: '',
+                  ),
+                ),
+                const SizedBox(height: 20),
+                const Center(
+                  child: UnFilledButtonSVGModel(
+                    iconPath: 'assets/icons/apple.svg',
+                    text: 'Login with Apple',
+                    // page: '',
+                  ),
+                ),
+                const SizedBox(height: 7),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Text(
+                      'Doesn\'t have an account?',
+                      style: TextStyle(
+                        fontSize: 16,
+                        color: Color(0xff979797),
+                        fontWeight: FontWeight.w200,
+                      ),
+                    ),
+                    TextButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const SignUpPage(),
+                          ),
+                        );
+                      },
+                      child: const Text(
+                        'Register',
+                        style: TextStyle(
+                          fontSize: 16,
+                          color: Colors.white,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                    )
+                  ],
+                ),
               ],
             ),
           ),
