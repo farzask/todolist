@@ -3,6 +3,7 @@ import 'package:uptodo/models/textmodel.dart';
 import 'package:uptodo/pages/home.dart';
 import 'package:uptodo/models/buttonmodel.dart';
 import 'package:uptodo/pages/login.dart';
+import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({super.key});
@@ -12,6 +13,10 @@ class SignUpPage extends StatefulWidget {
 }
 
 class _SignUpPageState extends State<SignUpPage> {
+  firebase_auth.FirebaseAuth firebaseAuth = firebase_auth.FirebaseAuth.instance;
+  TextEditingController _emailController = TextEditingController();
+  TextEditingController _passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,11 +39,11 @@ class _SignUpPageState extends State<SignUpPage> {
                 const SizedBox(height: 20),
                 Text(
                   style: TextModel.light,
-                  'Username',
+                  'Email',
                 ),
                 const SizedBox(height: 10),
                 Center(
-                  child: textBox('Enter your username'),
+                  child: textBox('Enter your Email', _emailController, false),
                 ),
                 const SizedBox(height: 20),
                 Text(
@@ -47,7 +52,7 @@ class _SignUpPageState extends State<SignUpPage> {
                 ),
                 const SizedBox(height: 10),
                 Center(
-                  child: textBox('Password'),
+                  child: textBox('Password', _passwordController, true),
                 ),
                 const SizedBox(height: 20),
                 Text(
@@ -56,7 +61,8 @@ class _SignUpPageState extends State<SignUpPage> {
                 ),
                 const SizedBox(height: 10),
                 Center(
-                  child: textBox('Re-enter your Password'),
+                  child: textBox(
+                      'Re-enter your Password', _passwordController, true),
                 ),
                 const SizedBox(
                   height: 30,
@@ -151,11 +157,14 @@ Row orDivider() {
   );
 }
 
-Widget textBox(String text) {
+Widget textBox(
+    String text, TextEditingController controller, bool obscureText) {
   return SizedBox(
     height: 48,
     width: 345,
     child: TextFormField(
+      controller: controller,
+      obscureText: obscureText,
       style: TextModel.body,
       decoration: InputDecoration(
         fillColor: const Color(0xff1D1D1D),

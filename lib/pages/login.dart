@@ -3,6 +3,7 @@ import 'package:uptodo/models/textmodel.dart';
 import 'package:uptodo/pages/home.dart';
 import 'package:uptodo/models/buttonmodel.dart';
 import 'package:uptodo/pages/sign_in_page.dart';
+import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -12,6 +13,10 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  firebase_auth.FirebaseAuth firebaseAuth = firebase_auth.FirebaseAuth.instance;
+  TextEditingController _emailController = TextEditingController();
+  TextEditingController _passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,11 +39,11 @@ class _LoginPageState extends State<LoginPage> {
                 const SizedBox(height: 20),
                 Text(
                   style: TextModel.light,
-                  'Username',
+                  'Email',
                 ),
                 const SizedBox(height: 10),
                 Center(
-                  child: textBox('Enter your username'),
+                  child: textBox('Enter your email', _emailController),
                 ),
                 const SizedBox(height: 20),
                 Text(
@@ -47,7 +52,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 const SizedBox(height: 10),
                 Center(
-                  child: textBox('Password'),
+                  child: textBox('Password', _passwordController),
                 ),
                 const SizedBox(
                   height: 50,
@@ -140,7 +145,7 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  Widget textBox(String text) {
+  Widget textBox(String text, TextEditingController controller) {
     return SizedBox(
       height: 48,
       width: 345,

@@ -5,16 +5,34 @@ import 'firebase_options.dart';
 import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
 // import "package:flutter_dotenv/flutter_dotenv.dart";
 
-Future<void> main() async {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   // await dotenv.load(fileName: ".env");
-  // await Firebase.initializeApp(
-  //   options: DefaultFirebaseOptions.currentPlatform,
-  // );
-  runApp(const MyApp());
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class MyApp extends StatefulWidget {
+  MyApp({super.key});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  // void signup() async {
+  //   try {
+  //     await firebaseAuth.createUserWithEmailAndPassword(
+  //         email: "shahzad.farza@gmail.com", password: "123456");
+  //   } catch (e) {
+  //     print(e);
+  //   }
+  // }
+
+  final firebase_auth.FirebaseAuth firebaseAuth =
+      firebase_auth.FirebaseAuth.instance;
 
   // This widget is the root of your application.
   @override
