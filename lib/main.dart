@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:uptodo/pages/intropage.dart';
-// import 'package:firebase_core/firebase_core.dart';
-// import 'firebase_options.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
+import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
 // import "package:flutter_dotenv/flutter_dotenv.dart";
-// import 'package:uptodo/pages/home.dart';
-// import 'package:uptodo/pages/sign_in_page.dart';
 
 Future<void> main() async {
   // await dotenv.load(fileName: ".env");

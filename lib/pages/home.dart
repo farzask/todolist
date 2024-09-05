@@ -11,6 +11,13 @@ class HomePage extends StatefulWidget {
 }
 
 int _selectedIndex = 0;
+List tasksList = [
+  [
+    'Learn coding',
+    false,
+  ],
+  ['Water plants', false]
+];
 
 class _HomePageState extends State<HomePage> {
   @override
@@ -19,15 +26,14 @@ class _HomePageState extends State<HomePage> {
       backgroundColor: const Color(0xff121212),
       appBar: appbar(),
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: SizedBox(
-            height: MediaQuery.of(context).size.height,
-            width: MediaQuery.of(context).size.width,
-            child: Column(
-              children: [
-                noTasks(),
-              ],
-            ),
+        child: SizedBox(
+          height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
+          child: Column(
+            children: [
+              // if (tasks.isEmpty) {} else {noTasks()},
+              tasks(),
+            ],
           ),
         ),
       ),
@@ -57,6 +63,32 @@ class _HomePageState extends State<HomePage> {
             buildNavBar('assets/icons/user.svg', 'Profile', 3),
           ],
         ),
+      ),
+    );
+  }
+
+  Widget tasks() {
+    return SizedBox(
+      height: 500,
+      child: ListView.separated(
+        separatorBuilder: (context, index) => const SizedBox(
+          height: 10,
+        ),
+        scrollDirection: Axis.vertical,
+        itemCount: tasksList.length,
+        itemBuilder: (BuildContext context, index) {
+          return Padding(
+            padding: const EdgeInsets.only(left: 20, right: 20),
+            child: Container(
+              height: 72,
+              width: 327,
+              decoration: BoxDecoration(
+                color: const Color(0xff363636),
+                borderRadius: BorderRadius.circular(4),
+              ),
+            ),
+          );
+        },
       ),
     );
   }
